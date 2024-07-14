@@ -7,5 +7,5 @@ script = ExtResource("1_tskd8")
 enemy_type = 2
 speed = 0.07
 gap = 1.0
-min = 3
-max = 6
+min_amount = 3
+max_amount = 6

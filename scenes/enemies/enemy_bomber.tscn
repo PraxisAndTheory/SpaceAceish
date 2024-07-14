@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://ig2lq5pkt5s1"]
+
+[ext_resource type="PackedScene" uid="uid://be15g0lljjl8v" path="res://scenes/enemies/enemy_basic.tscn" id="1_1wgdf"]
+[ext_resource type="PackedScene" uid="uid://ddunn873po2gt" path="res://scenes/bullets/enemy_bomb.tscn" id="2_cbvy2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ucuf0"]
+radius = 22.0
+height = 56.0
+
+[node name="EnemyBomber" instance=ExtResource("1_1wgdf")]
+shoots = true
+aims_at_player = true
+bullet_scene = ExtResource("2_cbvy2")
+bullet_wait_time = 2.0
+kill_me_score = 40
+damage_taken = 15
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"bomber_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ucuf0")
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(-10, 15)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(12, 16)
+
+[node name="Marker2D3" type="Marker2D" parent="Booms" index="2"]
+position = Vector2(10, -8)
+
+[node name="Marker2D4" type="Marker2D" parent="Booms" index="3"]
+position = Vector2(-11, -7)
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 20.0
+offset_bottom = -31.0

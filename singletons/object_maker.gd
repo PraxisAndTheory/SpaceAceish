@@ -4,11 +4,11 @@ extends Node
 enum SCENE_KEY { EXPLOSION, BOOM }
 
 const SIMPLE_SCENES = {
-	SCENE_KEY.EXPLOSION: preload("res://explosion/explosion.tscn"),
-	SCENE_KEY.BOOM: preload("res://boom/boom.tscn")
+	SCENE_KEY.EXPLOSION: preload("res://scenes/explosion/explosion.tscn"),
+	SCENE_KEY.BOOM: preload("res://scenes/boom/boom.tscn")
 }
 
-const POWER_UP_SCENE: PackedScene = preload('res://power_up/power_up.tscn')
+const POWER_UP_SCENE: PackedScene = preload('res://scenes/power_up/power_up.tscn')
 
 func get_random_powerup():
 	return GameData.POWER_UPS.keys().pick_random()

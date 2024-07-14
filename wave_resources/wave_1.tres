@@ -7,5 +7,5 @@ script = ExtResource("1_o83fu")
 enemy_type = 0
 speed = 0.1
 gap = 0.6
-min = 6
-max = 10
+min_amount = 6
+max_amount = 10
