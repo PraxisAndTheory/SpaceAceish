@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://d37j701f7q7e8"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_biu7r"]
+[ext_resource type="Texture2D" uid="uid://b4jww21wq880w" path="res://assets/backgrounds/GalaxyUno.png" id="1_e8mnt"]
+[ext_resource type="Texture2D" uid="uid://px33p0vjsihn" path="res://assets/backgrounds/spr_stars01.png" id="2_8hns5"]
+[ext_resource type="Texture2D" uid="uid://c470pgtxd8gq2" path="res://assets/backgrounds/spr_stars02.png" id="3_74qo0"]
+[ext_resource type="Texture2D" uid="uid://ddl1jgj8tmf2j" path="res://assets/ui/blue_button00.png" id="5_8rygd"]
+[ext_resource type="LabelSettings" uid="uid://c2qs0v6ip4h0b" path="res://assets/LG_Title.tres" id="5_q4xks"]
+[ext_resource type="Texture2D" uid="uid://drfmlv058pabr" path="res://assets/ui/yellow_button00.png" id="6_1d3yw"]
+[ext_resource type="Texture2D" uid="uid://dxc2vqxvccikd" path="res://assets/ui/green_button00.png" id="7_8vd0j"]
+[ext_resource type="LabelSettings" uid="uid://cgsc73285sxb2" path="res://assets/gm_32_white.tres" id="8_1qfm8"]
+[ext_resource type="PackedScene" uid="uid://1oquxs5j1jh4" path="res://sun/sun.tscn" id="9_3h0u1"]
+[ext_resource type="AudioStream" uid="uid://ck7ymwidvx0qy" path="res://assets/sounds/loops/TitleScreen.mp3" id="11_8ou32"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_biu7r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e8mnt")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hns5")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_74qo0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Space Ace
+(ish)"
+label_settings = ExtResource("5_q4xks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_8rygd")
+texture_pressed = ExtResource("6_1d3yw")
+texture_hover = ExtResource("7_8vd0j")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play
+"
+label_settings = ExtResource("8_1qfm8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_8rygd")
+texture_pressed = ExtResource("6_1d3yw")
+texture_hover = ExtResource("7_8vd0j")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+"
+label_settings = ExtResource("8_1qfm8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sun" parent="." instance=ExtResource("9_3h0u1")]
+position = Vector2(24, 24)
+scale = Vector2(0.3, 0.3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8ou32")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

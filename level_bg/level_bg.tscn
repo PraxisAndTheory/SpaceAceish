@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv74s523vv6xs"]
+
+[ext_resource type="Texture2D" uid="uid://px33p0vjsihn" path="res://assets/backgrounds/spr_stars01.png" id="1_bif6g"]
+[ext_resource type="Script" path="res://level_bg/level_bg.gd" id="1_yqhgs"]
+[ext_resource type="Texture2D" uid="uid://c470pgtxd8gq2" path="res://assets/backgrounds/spr_stars02.png" id="2_jlcn8"]
+
+[node name="LevelBg" type="ParallaxBackground"]
+script = ExtResource("1_yqhgs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 2560)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_bif6g")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 2560)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_jlcn8")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(0, 600)
+motion_mirroring = Vector2(0, 2560)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("2_jlcn8")

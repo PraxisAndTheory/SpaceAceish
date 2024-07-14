@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cgsc73285sxb2"]
+
+[ext_resource type="FontFile" uid="uid://csosdlemwxr86" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_6tpfa"]
+
+[resource]
+font = ExtResource("1_6tpfa")
+font_size = 32
+outline_size = 2
+outline_color = Color(0.105882, 0.105882, 0.105882, 1)
